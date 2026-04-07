@@ -23,3 +23,8 @@ C:\Users\matte\OneDrive\Schule\POS\exersices\Snake\obj\Debug\net8.0-windows\refi
 C:\Users\matte\OneDrive\Schule\POS\exersices\Snake\obj\Debug\net8.0-windows\Snake.pdb
 C:\Users\matte\OneDrive\Schule\POS\exersices\Snake\obj\Debug\net8.0-windows\Snake.genruntimeconfig.cache
 C:\Users\matte\OneDrive\Schule\POS\exersices\Snake\obj\Debug\net8.0-windows\ref\Snake.dll
+C:\Users\matte\OneDrive\Schule\POS\exersices\Snake\obj\Debug\net8.0-windows\Food.g.cs
+C:\Users\matte\OneDrive\Schule\POS\exersices\Snake\obj\Debug\net8.0-windows\SnakeUC.g.cs
+C:\Users\matte\OneDrive\Schule\POS\exersices\Snake\obj\Debug\net8.0-windows\Food.baml
+C:\Users\matte\OneDrive\Schule\POS\exersices\Snake\obj\Debug\net8.0-windows\SnakeUC.baml
+C:\Users\matte\OneDrive\Schule\POS\exersices\Snake\obj\Debug\net8.0-windows\Snake.sourcelink.json
