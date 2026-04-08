@@ -28,3 +28,6 @@ C:\Users\matte\OneDrive\Schule\POS\exersices\Snake\obj\Debug\net8.0-windows\Snak
 C:\Users\matte\OneDrive\Schule\POS\exersices\Snake\obj\Debug\net8.0-windows\Food.baml
 C:\Users\matte\OneDrive\Schule\POS\exersices\Snake\obj\Debug\net8.0-windows\SnakeUC.baml
 C:\Users\matte\OneDrive\Schule\POS\exersices\Snake\obj\Debug\net8.0-windows\Snake.sourcelink.json
+C:\Users\matte\OneDrive\Schule\POS\exersices\Snake\obj\Debug\net8.0-windows\settings.g.cs
+C:\Users\matte\OneDrive\Schule\POS\exersices\Snake\obj\Debug\net8.0-windows\settings.baml
+C:\Users\matte\OneDrive\Schule\POS\exersices\Snake\bin\Debug\net8.0-windows\.gitattributes
