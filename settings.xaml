@@ -5,8 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Snake"
         mc:Ignorable="d"
-        Title="settings" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Loaded="Window_Loaded"
+        Title="Settings" Height="300" Width="300">
+    <Canvas Background="Gray">
+        <Label Content="Speed" Canvas.Left="10" Canvas.Top="10" Height="30" Width="80"/>
+        <Slider x:Name="SpeedSlider" Canvas.Left="90" Canvas.Top="15" Width="120" Minimum="1" Maximum="5" Value="1" ValueChanged="SpeedSlider_ValueChanged"/>
+        <Label Content="Height" Canvas.Left="10" Canvas.Top="38" Width="80" Height="30" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Label Content="Width" Canvas.Left="10" Canvas.Top="73" Height="30" Width="80" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Label Content="Length" Canvas.Left="10" Canvas.Top="108" Height="30" Width="80" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Button x:Name="okButton" Content="OK" Canvas.Left="45" Canvas.Top="225" Height="50" Width="80" HorizontalAlignment="Left" VerticalAlignment="Center" Click="okButton_Click"/>
+        <Button x:Name="abbButton" Content="Cancel" Canvas.Left="150" Canvas.Top="225" HorizontalAlignment="Left" VerticalAlignment="Center" Height="50" Width="80" Click="abbButton_Click"/>
+        <Label x:Name="slidervalue" Content="1" Canvas.Left="215" Canvas.Top="12" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+
+    </Canvas>
 </Window>

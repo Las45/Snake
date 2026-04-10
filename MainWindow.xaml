@@ -15,7 +15,9 @@
 
             </Canvas>
             <Canvas Height="550" x:Name="spielfeld" Background="#1e1b26">
+                <Canvas x:Name="feld" Height="516" Width="780" Canvas.Left="10" Canvas.Top="10" Background="#4f4a65" HorizontalAlignment="Center" VerticalAlignment="Top">
 
+                </Canvas>
             </Canvas>
         </StackPanel>
 

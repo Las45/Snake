@@ -21,7 +21,7 @@ namespace Snake
                 rollingInterval: RollingInterval.Day,
                 retainedFileCountLimit: 7)
                 .CreateLogger();
-            Log.Information("Hello, Rotating Logs");
+            logger.Information("Hello, Rotating Logs");
         }
     }
 }

@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Snake
 {
@@ -16,19 +17,30 @@ namespace Snake
     /// </summary>
     public partial class MainWindow : Window
     {
+        Canvas spielfeld_;
         public MainWindow()
         {
             InitializeComponent();
+            this.spielfeld_ = spielfeld;
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            SnakeLogger.logger.Debug("gedrückt");
-        }
-
+        
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             SnakeLogger.init("snake.log");
+            SnakeLogger.logger.Information("Window wurde erstellt");
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromMilliseconds(25);
+            timer.Tick += tick;
+            timer.Start();
+        }
+        
+        private void tick(object sender, EventArgs e)
+        {
+            if(Keyboard.IsKeyDown(Key.Escape))
+            {
+                settings window = new settings();
+                window.ShowDialog();
+            }
         }
     }
 }
