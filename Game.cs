@@ -12,14 +12,14 @@ namespace Snake
         private SnakeUC sanake1;
         private SnakeUC sanake2;
         private Food food;
-        private settings settings = new settings(1, 10, 10, 1);
+        private Settings settings;
         private int score1;
         private int score2;
 
-        public Game(settings settings)
+        public Game(Settings settings)
         {
             this.settings = settings;
-            SnakeLogger.logger.Information($"Settings wurden übernommen");
+            SnakeLogger.logger.Information($"Settings wurden in Game übernommen");
         }
 
         public void Start()

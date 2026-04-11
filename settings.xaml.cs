@@ -9,26 +9,25 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 namespace Snake
 {
     /// <summary>
-    /// Interaktionslogik für settings.xaml
+    /// Interaktionslogik für Settings.xaml
     /// </summary>
-    public partial class settings : Window
+    public partial class Settings : Window
     {
-        public int speed { get;private set; }
+        public int speed { get; private set; }
         public int fieldWidth { get; private set; }
         public int fieldHeight { get; private set; }
         public int initialLength { get; private set; }
 
         public bool ok = false;
-        private bool loded=false;
+        private bool loded = false;
 
-        public settings(int speed=1, int width=10, int height=10, int length=1)
+        public Settings(int speed = 1, int width = 10, int height = 10, int length = 1)
         {
             InitializeComponent();
             SnakeLogger.logger.Information("Settings wurden initialisiert");
@@ -59,7 +58,7 @@ namespace Snake
 
         private void SpeedSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            if(loded == true)
+            if (loded == true)
                 slidervalue.Content = (int)SpeedSlider.Value;
         }
 

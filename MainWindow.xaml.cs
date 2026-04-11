@@ -18,6 +18,12 @@ namespace Snake
     public partial class MainWindow : Window
     {
         Canvas spielfeld_;
+        DispatcherTimer timer = new DispatcherTimer();
+        Game game;
+        Settings settings_window;
+        int height = 10;
+        int width = 10;
+        int speed = 1;
         public MainWindow()
         {
             InitializeComponent();
@@ -27,20 +33,63 @@ namespace Snake
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             SnakeLogger.init("snake.log");
+            settings_window = new Settings();
+            game = new Game(settings_window);
+            
+            int border_thickness = 3;
+            for (int y = 0; y < height; y++)
+            {
+                for (int x = 0; x < width; x++)
+                {
+                    Rectangle rect = new Rectangle();
+                    rect.Width = 40;
+                    rect.Height = 40;
+                    rect.Fill = Brushes.Black;
+                    Canvas.SetLeft(rect, x*40 + border_thickness*(x+1));
+                    Canvas.SetTop(rect, y*40 + border_thickness*(y+1));
+                    feld.Height = (y+1) * 40 + border_thickness * (y + 2);
+                    feld.Width = (x+1) * 40 + border_thickness * (x + 2);
+                    feld.Children.Add(rect);
+                }
+            }
+            SnakeLogger.logger.Debug($"Es wurden die Ferler erzeugt");
             SnakeLogger.logger.Information("Window wurde erstellt");
-            DispatcherTimer timer = new DispatcherTimer();
+            
             timer.Interval = TimeSpan.FromMilliseconds(25);
             timer.Tick += tick;
             timer.Start();
+            SnakeLogger.logger.Debug("Timer wurde gestartet");
         }
         
         private void tick(object sender, EventArgs e)
         {
-            if(Keyboard.IsKeyDown(Key.Escape))
+            if (Keyboard.IsKeyDown(Key.Escape))
             {
-                settings window = new settings();
-                window.ShowDialog();
+                SnakeLogger.logger.Debug("Esc wurde gedrückt");
+                settings_window.ShowDialog();
+                if (settings_window.ok == true)
+                {
+                    this.speed = settings_window.speed;
+                }
             }
         }
+
+        //Die Folgende Funktion ist teilweise von Ollama Modell: gpt-oss:120-cloud
+        //Promt:
+        // Nein, wenn ich settings dort instanziiere kann ich Mainwindow zwar schließen aber der Prozess wird nicht beendet.
+        // wenn ich Zeile 36 auskommentiere passiert das nicht
+
+        //Seine Falsche Antwort
+
+        //Weiterer Promt:
+        //Es ist nicht der Dispatchertimer
+
+        //Kommentar: was ich nicht wusste war, dass beim Instanziieren das Fenster "geöffnet" wird und somit sich das nicht schließen lassen kann
+        protected override void OnClosed(EventArgs e)
+        {
+            // 2. Settings‑Fenster schließen, wenn es noch geöffnet ist
+            settings_window.Close();    // entfernt es aus Application.Current.Windows
+        }
+
     }
 }

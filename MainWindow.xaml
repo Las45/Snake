@@ -9,13 +9,13 @@
         Icon="/Images/icon.ico"
         Title="Snake" Height="600" Width="800">
     <Grid>
-        <StackPanel>
-            <Canvas Height="50" Background="#1e1b26">
-                <Label Content="SCORE 0" Canvas.Left="333" Canvas.Top="8" Height="34" Width="134" Foreground="White" FontSize="20"/>
+        <StackPanel Background="#1e1b26">
+            <Canvas HorizontalAlignment="Center" Height="50" Background="#1e1b26" Width="800">
+                <Label HorizontalContentAlignment="Center" Content="SCORE 0" Canvas.Left="333" Canvas.Top="8" Height="34" Width="134" Foreground="White" FontSize="20"/>
 
             </Canvas>
             <Canvas Height="550" x:Name="spielfeld" Background="#1e1b26">
-                <Canvas x:Name="feld" Height="516" Width="780" Canvas.Left="10" Canvas.Top="10" Background="#4f4a65" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <Canvas x:Name="feld" Height="516" Width="780" Canvas.Left="10" Canvas.Top="10" Background="#4f4a65">
 
                 </Canvas>
             </Canvas>
