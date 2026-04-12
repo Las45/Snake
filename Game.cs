@@ -4,32 +4,35 @@ using System.Linq;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace Snake
 {
     public class Game
     {
-        private SnakeUC sanake1;
-        private SnakeUC sanake2;
+        public SnakeUC snake1;
+        public SnakeUC snake2;
         private Food food;
         private Settings settings;
         private int score1;
         private int score2;
 
-        public Game(Settings settings)
+        public Game(Settings settings, Canvas feld)
         {
             this.settings = settings;
+            snake1 = new SnakeUC(3, feld);
             SnakeLogger.logger.Information($"Settings wurden in Game übernommen");
         }
 
-        public void Start()
+        public void Start(Canvas feld)
         {
-
+            snake1.Move();
+            SnakeLogger.logger.Debug("Snake1 wurde hinzugefügt");
         }
 
         public void Update()
         {
-
+            snake1.Move();
         }
 
         public void Pause()

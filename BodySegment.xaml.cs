@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Serilog.Debugging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,8 +21,8 @@ namespace Snake
     /// </summary>
     public partial class BodySegment : UserControl
     {
-        private int x;
-        private int y;
+        public int x;
+        public int y;
 
         public BodySegment(int x, int y)
         {
@@ -31,6 +32,8 @@ namespace Snake
         }
         public (int, int) GetPosition()
         {
+            Canvas.SetTop(this, y * 43 - 40);
+            Canvas.SetLeft(this, x * 43 - 40);
             return (this.x, this.y);
         }
     }

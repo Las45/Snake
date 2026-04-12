@@ -23,17 +23,44 @@ namespace Snake
         private List<BodySegment> bodySegments = new List<BodySegment>();
         private Direction direction = Direction.Right;
         private bool isAlive = true;
-        public SnakeUC(int startLength)
+        public SnakeUC(int startLength, Canvas feld)
         {
             InitializeComponent();
             for (int i = 0; i < startLength; i++)
             {
                 bodySegments.Add(new BodySegment(5-i, 1));
+                bodySegments[i].GetPosition();
+                feld.Children.Add(bodySegments[i]);
             }
         }
         public void Move()
         {
+            for (int i = bodySegments.Count()-1; i > 0; i--)
+            {
+                bodySegments[i].x = bodySegments[i-1].x;
+                bodySegments[i].y = bodySegments[i - 1].y;
+                Canvas.SetLeft(bodySegments[i], bodySegments[i].x * 43-40);
+                Canvas.SetTop(bodySegments[i], bodySegments[i].y * 43 - 40);
+            }
+            if (direction == Direction.Right)
+            {
+                bodySegments[0].x += 1;
+            }
+            else if (direction == Direction.Left)
+            {
+                bodySegments[0].x -= 1;
 
+            }
+            else if (direction == Direction.Up)
+            {
+                bodySegments[0].y -= 1;
+            }
+            else if (direction == Direction.Down)
+            {
+                bodySegments[0].y += 1;
+            }
+            Canvas.SetLeft(bodySegments[0], bodySegments[0].x * 43 - 40);
+            Canvas.SetTop(bodySegments[0], bodySegments[0].y * 43 - 40);
         }
 
         public void ChangeDirection(Direction direction)

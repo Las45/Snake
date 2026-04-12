@@ -16,6 +16,8 @@
         <Button x:Name="okButton" Content="OK" Canvas.Left="45" Canvas.Top="225" Height="50" Width="80" HorizontalAlignment="Left" VerticalAlignment="Center" Click="okButton_Click"/>
         <Button x:Name="abbButton" Content="Cancel" Canvas.Left="150" Canvas.Top="225" HorizontalAlignment="Left" VerticalAlignment="Center" Height="50" Width="80" Click="abbButton_Click"/>
         <Label x:Name="slidervalue" Content="1" Canvas.Left="215" Canvas.Top="12" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Label Content="Name" Canvas.Left="10" Canvas.Top="142" Height="30" Width="80"/>
+        <TextBox x:Name="name_textbox" Canvas.Left="90" TextWrapping="Wrap" Text="" Canvas.Top="148" Width="120"/>
 
     </Canvas>
 </Window>

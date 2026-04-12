@@ -19,6 +19,7 @@ namespace Snake
     /// </summary>
     public partial class Settings : Window
     {
+        public string name { get; private set; }
         public int speed { get; private set; }
         public int fieldWidth { get; private set; }
         public int fieldHeight { get; private set; }
@@ -27,7 +28,7 @@ namespace Snake
         public bool ok = false;
         private bool loded = false;
 
-        public Settings(int speed = 1, int width = 10, int height = 10, int length = 1)
+        public Settings(int speed = 1, int width = 10, int height = 10, int length = 1, string name = null)
         {
             InitializeComponent();
             SnakeLogger.logger.Information("Settings wurden initialisiert");
@@ -35,11 +36,13 @@ namespace Snake
             this.fieldWidth = width;
             this.fieldHeight = height;
             this.initialLength = length;
+            this.name = name;
             SnakeLogger.logger.Information($"Settings Werten wurden gesetzt: {speed},{width},{height},{length}");
         }
         public void Apply()
         {
             this.speed = (int)SpeedSlider.Value;
+            this.name = name_textbox.Text;
         }
 
         private void okButton_Click(object sender, RoutedEventArgs e)

@@ -7,9 +7,10 @@
         mc:Ignorable="d"
         Loaded="Window_Loaded"
         Icon="/Images/icon.ico"
+        KeyDown="StackPanel_KeyDown"
         Title="Snake" Height="600" Width="800">
     <Grid>
-        <StackPanel Background="#1e1b26">
+        <StackPanel KeyDown="StackPanel_KeyDown" Background="#1e1b26">
             <Canvas HorizontalAlignment="Center" Height="50" Background="#1e1b26" Width="800">
                 <Label HorizontalContentAlignment="Center" Content="SCORE 0" Canvas.Left="333" Canvas.Top="8" Height="34" Width="134" Foreground="White" FontSize="20"/>
 

@@ -34,7 +34,6 @@ namespace Snake
         {
             SnakeLogger.init("snake.log");
             settings_window = new Settings();
-            game = new Game(settings_window);
             
             int border_thickness = 3;
             for (int y = 0; y < height; y++)
@@ -52,10 +51,12 @@ namespace Snake
                     feld.Children.Add(rect);
                 }
             }
-            SnakeLogger.logger.Debug($"Es wurden die Ferler erzeugt");
+            game = new Game(settings_window, feld);
+            SnakeLogger.logger.Debug($"Es wurden die Felder erzeugt");
             SnakeLogger.logger.Information("Window wurde erstellt");
             
-            timer.Interval = TimeSpan.FromMilliseconds(25);
+            timer.Interval = TimeSpan.FromSeconds(0.5);
+            game.Start(feld);
             timer.Tick += tick;
             timer.Start();
             SnakeLogger.logger.Debug("Timer wurde gestartet");
@@ -63,15 +64,7 @@ namespace Snake
         
         private void tick(object sender, EventArgs e)
         {
-            if (Keyboard.IsKeyDown(Key.Escape))
-            {
-                SnakeLogger.logger.Debug("Esc wurde gedrückt");
-                settings_window.ShowDialog();
-                if (settings_window.ok == true)
-                {
-                    this.speed = settings_window.speed;
-                }
-            }
+            game.Update();
         }
 
         //Die Folgende Funktion ist teilweise von Ollama Modell: gpt-oss:120-cloud
@@ -91,5 +84,36 @@ namespace Snake
             settings_window.Close();    // entfernt es aus Application.Current.Windows
         }
 
+        private void StackPanel_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == (Key.Escape))
+            {
+                SnakeLogger.logger.Debug("Esc wurde gedrückt");
+                settings_window = new Settings();
+                timer.Stop();
+                settings_window.ShowDialog();
+                if (settings_window.ok == true)
+                {
+                    this.speed = settings_window.speed;
+                }
+                timer.Start();
+            }
+            if (e.Key == (Key.W))
+            {
+                game.snake1.ChangeDirection(Direction.Up);
+            }
+            else if (e.Key == (Key.A))
+            {
+                game.snake1.ChangeDirection(Direction.Left);
+            }
+            else if (e.Key == (Key.S))
+            {
+                game.snake1.ChangeDirection(Direction.Down);
+            }
+            else if (e.Key == (Key.D))
+            {
+                game.snake1.ChangeDirection(Direction.Right);
+            }
+        }
     }
 }
