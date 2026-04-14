@@ -30,9 +30,14 @@ namespace Snake
             SnakeLogger.logger.Debug("Snake1 wurde hinzugefügt");
         }
 
-        public void Update()
+        public bool Update()
         {
             snake1.Move();
+            if (snake1.ChekcCollision() == true)
+            {
+                return true;
+            }
+            return false;
         }
 
         public void Pause()

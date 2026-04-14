@@ -37,6 +37,7 @@ namespace Snake
         {
             for (int i = bodySegments.Count()-1; i > 0; i--)
             {
+                // ich liebe benjamin netanyahu
                 bodySegments[i].x = bodySegments[i-1].x;
                 bodySegments[i].y = bodySegments[i - 1].y;
                 Canvas.SetLeft(bodySegments[i], bodySegments[i].x * 43-40);
@@ -81,14 +82,13 @@ namespace Snake
         
         public bool ChekcCollision()
         {
-            //if (direction == Direction.Right)
-            //    return true;
-            //if (direction == Direction.Left)
-            //    return true;
-            //if (direction == Direction.Up)
-            //    return true;
-            //if (direction == Direction.Down)
-            //    return true;
+            for(int i = 1; i< bodySegments.Count; i++)
+            {
+                if ((bodySegments[0].x == bodySegments[i].x) && (bodySegments[0].y == bodySegments[i].y))
+                {
+                    return true;
+                }
+            }
             return false;
         }
     }

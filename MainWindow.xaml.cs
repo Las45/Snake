@@ -50,7 +50,10 @@ namespace Snake
         
         private void tick(object sender, EventArgs e)
         {
-            game.Update();
+            if (game.Update() == true)
+            {
+                OnClosed(EventArgs.Empty);
+            }
         }
 
         //Die Folgende Funktion ist teilweise von Ollama Modell: gpt-oss:120-cloud
