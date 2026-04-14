@@ -20,7 +20,7 @@ namespace Snake
     public partial class Settings : Window
     {
         public string name { get; private set; }
-        public int speed { get; private set; }
+        public double speed { get; private set; }
         public int fieldWidth { get; private set; }
         public int fieldHeight { get; private set; }
         public int initialLength { get; private set; }
@@ -41,7 +41,10 @@ namespace Snake
         }
         public void Apply()
         {
-            this.speed = (int)SpeedSlider.Value;
+            this.speed = SpeedSlider.Value;
+            this.fieldHeight = (int)height_slider.Value;
+            this.fieldWidth = (int)width_slider.Value;
+            this.initialLength = (int)length_slider.Value;
             this.name = name_textbox.Text;
         }
 
@@ -62,12 +65,30 @@ namespace Snake
         private void SpeedSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             if (loded == true)
-                slidervalue.Content = (int)SpeedSlider.Value;
+                slidervalue.Content = SpeedSlider.Value;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             loded = true;
+        }
+
+        private void length_slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if (loded == true)
+                slidervalue_length.Content = length_slider.Value;
+        }
+
+        private void width_slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if (loded == true)
+                slidervalue_width.Content = width_slider.Value;
+        }
+
+        private void height_slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if (loded == true)
+                slidervalue_heigth.Content = height_slider.Value;
         }
     }
 }

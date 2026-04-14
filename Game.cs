@@ -20,7 +20,7 @@ namespace Snake
         public Game(Settings settings, Canvas feld)
         {
             this.settings = settings;
-            snake1 = new SnakeUC(3, feld);
+            snake1 = new SnakeUC(settings.initialLength, feld);
             SnakeLogger.logger.Information($"Settings wurden in Game übernommen");
         }
 

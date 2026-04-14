@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Diagnostics;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -23,7 +24,8 @@ namespace Snake
         Settings settings_window;
         int height = 10;
         int width = 10;
-        int speed = 1;
+        double speed = 1; 
+        int border_thickness = 3;
         public MainWindow()
         {
             InitializeComponent();
@@ -34,24 +36,8 @@ namespace Snake
         {
             SnakeLogger.init("snake.log");
             settings_window = new Settings();
+            felder_erstellen();
             
-            int border_thickness = 3;
-            for (int y = 0; y < height; y++)
-            {
-                for (int x = 0; x < width; x++)
-                {
-                    Rectangle rect = new Rectangle();
-                    rect.Width = 40;
-                    rect.Height = 40;
-                    rect.Fill = Brushes.Black;
-                    Canvas.SetLeft(rect, x*40 + border_thickness*(x+1));
-                    Canvas.SetTop(rect, y*40 + border_thickness*(y+1));
-                    feld.Height = (y+1) * 40 + border_thickness * (y + 2);
-                    feld.Width = (x+1) * 40 + border_thickness * (x + 2);
-                    feld.Children.Add(rect);
-                }
-            }
-            game = new Game(settings_window, feld);
             SnakeLogger.logger.Debug($"Es wurden die Felder erzeugt");
             SnakeLogger.logger.Information("Window wurde erstellt");
             
@@ -80,8 +66,7 @@ namespace Snake
         //Kommentar: was ich nicht wusste war, dass beim Instanziieren das Fenster "geöffnet" wird und somit sich das nicht schließen lassen kann
         protected override void OnClosed(EventArgs e)
         {
-            // 2. Settings‑Fenster schließen, wenn es noch geöffnet ist
-            settings_window.Close();    // entfernt es aus Application.Current.Windows
+            Application.Current.Shutdown();
         }
 
         private void StackPanel_KeyDown(object sender, KeyEventArgs e)
@@ -95,25 +80,52 @@ namespace Snake
                 if (settings_window.ok == true)
                 {
                     this.speed = settings_window.speed;
+                    this.height = (int)settings_window.fieldHeight;
+                    this.width = (int)settings_window.fieldWidth;
+                    felder_erstellen();
+                    timer.Interval = TimeSpan.FromSeconds(settings_window.speed);
+
                 }
                 timer.Start();
             }
-            if (e.Key == (Key.W))
+            if (e.Key == (Key.W) && game.snake1.direction != Direction.Down)
             {
                 game.snake1.ChangeDirection(Direction.Up);
             }
-            else if (e.Key == (Key.A))
+            else if (e.Key == (Key.A) && game.snake1.direction != Direction.Right)
             {
                 game.snake1.ChangeDirection(Direction.Left);
             }
-            else if (e.Key == (Key.S))
+            else if (e.Key == (Key.S) && game.snake1.direction != Direction.Up)
             {
                 game.snake1.ChangeDirection(Direction.Down);
             }
-            else if (e.Key == (Key.D))
+            else if (e.Key == (Key.D) && game.snake1.direction != Direction.Left)
             {
                 game.snake1.ChangeDirection(Direction.Right);
             }
+        }
+        private void felder_erstellen()
+        {
+            feld.Children.Clear();
+            SnakeLogger.logger.Debug($"Feld wurde gecleard: {feld.Children.Count}");
+            for (int y = 0; y < height; y++)
+            {
+                for (int x = 0; x < width; x++)
+                {
+                    Rectangle rect = new Rectangle();
+                    rect.Width = 40;
+                    rect.Height = 40;
+                    rect.Fill = Brushes.Black;
+                    Canvas.SetLeft(rect, x * 40 + border_thickness * (x + 1));
+                    Canvas.SetTop(rect, y * 40 + border_thickness * (y + 1));
+                    feld.Height = (y + 1) * 40 + border_thickness * (y + 2);
+                    feld.Width = (x + 1) * 40 + border_thickness * (x + 2);
+                    feld.Children.Add(rect);
+                }
+            }
+            SnakeLogger.logger.Debug($"Height/Width{height};{width}");
+            game = new Game(settings_window, feld);
         }
     }
 }

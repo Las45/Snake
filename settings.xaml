@@ -9,7 +9,7 @@
     Title="Settings" Height="300" Width="300">
     <Canvas Background="Gray">
         <Label Content="Speed" Canvas.Left="10" Canvas.Top="10" Height="30" Width="80"/>
-        <Slider x:Name="SpeedSlider" Canvas.Left="90" Canvas.Top="15" Width="120" Minimum="1" Maximum="5" Value="1" ValueChanged="SpeedSlider_ValueChanged"/>
+        <Slider x:Name="SpeedSlider" Canvas.Left="90" Canvas.Top="15" Width="120" Minimum="0.1" Maximum="3" Value="1" TickFrequency="0.1" IsSnapToTickEnabled="True" ValueChanged="SpeedSlider_ValueChanged"/>
         <Label Content="Height" Canvas.Left="10" Canvas.Top="38" Width="80" Height="30" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         <Label Content="Width" Canvas.Left="10" Canvas.Top="73" Height="30" Width="80" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         <Label Content="Length" Canvas.Left="10" Canvas.Top="108" Height="30" Width="80" HorizontalAlignment="Center" VerticalAlignment="Top"/>
@@ -18,6 +18,12 @@
         <Label x:Name="slidervalue" Content="1" Canvas.Left="215" Canvas.Top="12" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         <Label Content="Name" Canvas.Left="10" Canvas.Top="142" Height="30" Width="80"/>
         <TextBox x:Name="name_textbox" Canvas.Left="90" TextWrapping="Wrap" Text="" Canvas.Top="148" Width="120"/>
+        <Slider x:Name="length_slider" Canvas.Left="90" Minimum="1" Maximum="5" TickFrequency="1" IsSnapToTickEnabled="True" Canvas.Top="114" Width="120" ValueChanged="length_slider_ValueChanged"/>
+        <Label x:Name="slidervalue_length" Content="1" Canvas.Left="215" Canvas.Top="110" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Slider x:Name="height_slider" Value="10" Minimum="5" Maximum="50" TickFrequency="1" IsSnapToTickEnabled="True" Canvas.Left="90" Canvas.Top="44" Width="120" ValueChanged="height_slider_ValueChanged"/>
+        <Slider x:Name="width_slider" Value="10" Minimum="5" Maximum="50" TickFrequency="1" IsSnapToTickEnabled="True" Canvas.Left="90" Canvas.Top="79" Width="120" HorizontalAlignment="Center" VerticalAlignment="Top" ValueChanged="width_slider_ValueChanged"/>
+        <Label x:Name="slidervalue_width" Content="10" Canvas.Left="214" Canvas.Top="75" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label x:Name="slidervalue_heigth" Content="10" Canvas.Left="215" Canvas.Top="40" HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
     </Canvas>
 </Window>
