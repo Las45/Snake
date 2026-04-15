@@ -33,7 +33,7 @@ namespace Snake
         public bool Update()
         {
             snake1.Move();
-            if (snake1.ChekcCollision() == true)
+            if (snake1.ChekcCollision(settings.fieldHeight, settings.fieldWidth) == true)
             {
                 return true;
             }

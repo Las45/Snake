@@ -80,14 +80,18 @@ namespace Snake
                 bodySegments.Add(new BodySegment(bodySegments[-1].GetPosition().Item1, bodySegments[-1].GetPosition().Item2 + 1));
         }
         
-        public bool ChekcCollision()
+        public bool ChekcCollision(int height, double width)
         {
-            for(int i = 1; i< bodySegments.Count; i++)
+            for (int i = 1; i < bodySegments.Count; i++)
             {
                 if ((bodySegments[0].x == bodySegments[i].x) && (bodySegments[0].y == bodySegments[i].y))
                 {
                     return true;
                 }
+            }
+            if ((bodySegments[0].x > width || bodySegments[0].x <= 0)||(bodySegments[0].y > height || bodySegments[0].y <= 0))
+            {
+                return true;
             }
             return false;
         }
