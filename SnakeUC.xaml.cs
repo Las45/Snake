@@ -39,7 +39,7 @@ namespace Snake
             {
                 bodySegments[i].x = bodySegments[i-1].x;
                 bodySegments[i].y = bodySegments[i - 1].y;
-                Canvas.SetLeft(bodySegments[i], bodySegments[i].x * 43-40);
+                Canvas.SetLeft(bodySegments[i], bodySegments[i].x * 43 - 40);
                 Canvas.SetTop(bodySegments[i], bodySegments[i].y * 43 - 40);
             }
             if (direction == Direction.Right)
@@ -67,32 +67,32 @@ namespace Snake
         {
             this.direction = direction;
         }
-        public void Grow()
+        public void Grow(Canvas feld)
         {
-            if (direction == Direction.Right)
-                bodySegments.Add(new BodySegment(bodySegments[-1].GetPosition().Item1-1, bodySegments[-1].GetPosition().Item2));
-            if (direction == Direction.Left)
-                bodySegments.Add(new BodySegment(bodySegments[-1].GetPosition().Item1 + 1, bodySegments[-1].GetPosition().Item2));
-            if (direction == Direction.Up)
-                bodySegments.Add(new BodySegment(bodySegments[-1].GetPosition().Item1, bodySegments[-1].GetPosition().Item2 - 1));
-            if (direction == Direction.Down)
-                bodySegments.Add(new BodySegment(bodySegments[-1].GetPosition().Item1, bodySegments[-1].GetPosition().Item2 + 1));
+            bodySegments.Add(new BodySegment(bodySegments[bodySegments.Count - 1].GetPosition().Item1, bodySegments[bodySegments.Count - 1].GetPosition().Item2 + 1));
+            Canvas.SetLeft(bodySegments[bodySegments.Count - 1], bodySegments[bodySegments.Count-1].x * 43 - 40);
+            Canvas.SetTop(bodySegments[bodySegments.Count - 1], bodySegments[bodySegments.Count-1].y * 43 - 40);
+            feld.Children.Add(bodySegments[bodySegments.Count-1]);
         }
         
-        public bool ChekcCollision(int height, double width)
+        public (bool, bool) ChekcCollision(int height, double width, (int, int)food_coords)
         {
             for (int i = 1; i < bodySegments.Count; i++)
             {
                 if ((bodySegments[0].x == bodySegments[i].x) && (bodySegments[0].y == bodySegments[i].y))
                 {
-                    return true;
+                    return (true, false);
                 }
             }
             if ((bodySegments[0].x > width || bodySegments[0].x <= 0)||(bodySegments[0].y > height || bodySegments[0].y <= 0))
             {
-                return true;
+                return (true, false);
             }
-            return false;
+            else if ((bodySegments[0].x, bodySegments[0].y) == food_coords)
+            {
+                return (false, true);
+            }
+            return (false, false);
         }
     }
 }

@@ -22,6 +22,7 @@ namespace Snake
         DispatcherTimer timer = new DispatcherTimer();
         Game game;
         Settings settings_window;
+        int score = 0;
         int height = 10;
         int width = 10;
         double speed = 1; 
@@ -50,7 +51,7 @@ namespace Snake
         
         private void tick(object sender, EventArgs e)
         {
-            if (game.Update() == true)
+            if (game.Update(feld, score_label) == true)
             {
                 OnClosed(EventArgs.Empty);
             }

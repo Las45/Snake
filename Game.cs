@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace Snake
@@ -21,7 +22,7 @@ namespace Snake
         {
             this.settings = settings;
             snake1 = new SnakeUC(settings.initialLength, feld);
-            food = new Food(settings.fieldWidth,settings.fieldHeight);
+            food = new Food(settings.fieldWidth,settings.fieldHeight, feld);
             SnakeLogger.logger.Information($"Settings wurden in Game übernommen");
         }
 
@@ -32,14 +33,21 @@ namespace Snake
             SnakeLogger.logger.Debug("Snake1 wurde hinzugefügt");
         }
 
-        public bool Update()
+        public bool Update(Canvas feld, Label score)
         {
             snake1.Move();
-
-            if (snake1.ChekcCollision(settings.fieldHeight, settings.fieldWidth) == true)
+            if (snake1.ChekcCollision(settings.fieldHeight, settings.fieldWidth, food.GetPosition()).Item1 == true)
             {
                 return true;
             }
+            else if(snake1.ChekcCollision(settings.fieldHeight, settings.fieldWidth, food.GetPosition()).Item2 == true)
+            {
+                SnakeLogger.logger.Debug("Apfel wurde gegessen");
+                score1++;
+                snake1.Grow(feld);
+                food.Respawn(feld);
+            }
+            score.Content = $"Score: {score1}";
             return false;
         }
 

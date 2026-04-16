@@ -26,11 +26,16 @@ namespace Snake
         private int fieldWith;
         private int fieldHeight;
         private Random random = new Random();
-        public Food(int fieldWith, int fieldHeight)
+        public Food(int fieldWith, int fieldHeight, Canvas field)
         {
             InitializeComponent();
             this.fieldHeight = fieldHeight;
             this.fieldWith = fieldWith;
+            x = random.Next(1, fieldWith);
+            y = random.Next(1, fieldHeight);
+            Canvas.SetLeft(this, x * 43 - 40);
+            Canvas.SetTop(this, y * 43 - 40);
+            field.Children.Add(this);
         }
 
         public void Respawn(Canvas field)
@@ -39,7 +44,6 @@ namespace Snake
             y = random.Next(1, fieldHeight);
             Canvas.SetLeft(this, x * 43 - 40);
             Canvas.SetTop(this, y * 43 - 40);
-            field.Children.Add(this);
             SnakeLogger.logger.Information($"Apfel wurde auf {x * 43 - 40},{y * 43 - 40} gesetzt");
         }
         public (int, int) GetPosition()
