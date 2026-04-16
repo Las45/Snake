@@ -37,7 +37,6 @@ namespace Snake
         {
             for (int i = bodySegments.Count()-1; i > 0; i--)
             {
-                // ich liebe benjamin netanyahu
                 bodySegments[i].x = bodySegments[i-1].x;
                 bodySegments[i].y = bodySegments[i - 1].y;
                 Canvas.SetLeft(bodySegments[i], bodySegments[i].x * 43-40);

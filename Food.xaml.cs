@@ -33,10 +33,14 @@ namespace Snake
             this.fieldWith = fieldWith;
         }
 
-        public void Respawn()
+        public void Respawn(Canvas field)
         {
             x = random.Next(1, fieldWith);
             y = random.Next(1, fieldHeight);
+            Canvas.SetLeft(this, x * 43 - 40);
+            Canvas.SetTop(this, y * 43 - 40);
+            field.Children.Add(this);
+            SnakeLogger.logger.Information($"Apfel wurde auf {x * 43 - 40},{y * 43 - 40} gesetzt");
         }
         public (int, int) GetPosition()
         {

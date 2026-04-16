@@ -21,18 +21,21 @@ namespace Snake
         {
             this.settings = settings;
             snake1 = new SnakeUC(settings.initialLength, feld);
+            food = new Food(settings.fieldWidth,settings.fieldHeight);
             SnakeLogger.logger.Information($"Settings wurden in Game übernommen");
         }
 
         public void Start(Canvas feld)
         {
             snake1.Move();
+            food.Respawn(feld);
             SnakeLogger.logger.Debug("Snake1 wurde hinzugefügt");
         }
 
         public bool Update()
         {
             snake1.Move();
+
             if (snake1.ChekcCollision(settings.fieldHeight, settings.fieldWidth) == true)
             {
                 return true;
