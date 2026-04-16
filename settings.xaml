@@ -24,6 +24,8 @@
         <Slider x:Name="width_slider" Value="10" Minimum="5" Maximum="50" TickFrequency="1" IsSnapToTickEnabled="True" Canvas.Left="90" Canvas.Top="79" Width="120" HorizontalAlignment="Center" VerticalAlignment="Top" ValueChanged="width_slider_ValueChanged"/>
         <Label x:Name="slidervalue_width" Content="10" Canvas.Left="214" Canvas.Top="75" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label x:Name="slidervalue_heigth" Content="10" Canvas.Left="215" Canvas.Top="40" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Button x:Name="save_Button" Content="Save" Canvas.Left="45" Canvas.Top="171" Height="50" Width="80" Click="save_Button_Click" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Button x:Name="Load_Button" Content="Load" Canvas.Left="150" Canvas.Top="171" Height="50" Width="80" Click="Load_Button_Click"  HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
     </Canvas>
 </Window>

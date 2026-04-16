@@ -90,5 +90,15 @@ namespace Snake
             if (loded == true)
                 slidervalue_heigth.Content = height_slider.Value;
         }
+
+        private void Load_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void save_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
