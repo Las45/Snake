@@ -20,7 +20,7 @@ namespace Snake
     /// </summary>
     public partial class SnakeUC : UserControl
     {
-        private List<BodySegment> bodySegments = new List<BodySegment>();
+        public List<BodySegment> bodySegments = new List<BodySegment>();
         public Direction direction { get; private set; } = Direction.Right;
         private bool isAlive = true;
         public SnakeUC(int startLength, Canvas feld)

@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\matte\\OneDrive\\Schule\\POS\\exersices\\Snake\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{EF377193-D849-9FDB-186A-94CCFB47C08F}|Snake.csproj|c:\\users\\matte\\onedrive\\schule\\pos\\exersices\\snake\\settings.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EF377193-D849-9FDB-186A-94CCFB47C08F}|Snake.csproj|solutionrelative:settings.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{EF377193-D849-9FDB-186A-94CCFB47C08F}|Snake.csproj|c:\\users\\matte\\onedrive\\schule\\pos\\exersices\\snake\\snakeuc.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EF377193-D849-9FDB-186A-94CCFB47C08F}|Snake.csproj|solutionrelative:snakeuc.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EF377193-D849-9FDB-186A-94CCFB47C08F}|Snake.csproj|c:\\users\\matte\\onedrive\\schule\\pos\\exersices\\snake\\settings.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{EF377193-D849-9FDB-186A-94CCFB47C08F}|Snake.csproj|solutionrelative:settings.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EF377193-D849-9FDB-186A-94CCFB47C08F}|Snake.csproj|c:\\users\\matte\\onedrive\\schule\\pos\\exersices\\snake\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -38,11 +46,36 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
+              "Title": "Settings.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\matte\\OneDrive\\Schule\\POS\\exersices\\Snake\\Settings.xaml.cs",
+              "RelativeDocumentMoniker": "Settings.xaml.cs",
+              "ToolTip": "C:\\Users\\matte\\OneDrive\\Schule\\POS\\exersices\\Snake\\Settings.xaml.cs",
+              "RelativeToolTip": "Settings.xaml.cs",
+              "ViewState": "AgIAAE0AAAAAAAAAAADwv1sAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T17:20:21.31Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Settings.xaml",
+              "DocumentMoniker": "C:\\Users\\matte\\OneDrive\\Schule\\POS\\exersices\\Snake\\Settings.xaml",
+              "RelativeDocumentMoniker": "Settings.xaml",
+              "ToolTip": "C:\\Users\\matte\\OneDrive\\Schule\\POS\\exersices\\Snake\\Settings.xaml",
+              "RelativeToolTip": "Settings.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-16T17:18:44.782Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\matte\\OneDrive\\Schule\\POS\\exersices\\Snake\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
@@ -54,7 +87,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "Direction.cs",
               "DocumentMoniker": "C:\\Users\\matte\\OneDrive\\Schule\\POS\\exersices\\Snake\\Direction.cs",
               "RelativeDocumentMoniker": "Direction.cs",
@@ -66,7 +99,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "SnakeUC.xaml.cs",
               "DocumentMoniker": "C:\\Users\\matte\\OneDrive\\Schule\\POS\\exersices\\Snake\\SnakeUC.xaml.cs",
               "RelativeDocumentMoniker": "SnakeUC.xaml.cs",
@@ -79,7 +112,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\matte\\OneDrive\\Schule\\POS\\exersices\\Snake\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
@@ -92,7 +125,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Game.cs",
               "DocumentMoniker": "C:\\Users\\matte\\OneDrive\\Schule\\POS\\exersices\\Snake\\Game.cs",
               "RelativeDocumentMoniker": "Game.cs",
@@ -105,7 +138,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Food.xaml.cs",
               "DocumentMoniker": "C:\\Users\\matte\\OneDrive\\Schule\\POS\\exersices\\Snake\\Food.xaml.cs",
               "RelativeDocumentMoniker": "Food.xaml.cs",
@@ -118,7 +151,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "BodySegment.xaml.cs",
               "DocumentMoniker": "C:\\Users\\matte\\OneDrive\\Schule\\POS\\exersices\\Snake\\BodySegment.xaml.cs",
               "RelativeDocumentMoniker": "BodySegment.xaml.cs",

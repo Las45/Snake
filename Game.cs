@@ -22,7 +22,7 @@ namespace Snake
         {
             this.settings = settings;
             snake1 = new SnakeUC(settings.initialLength, feld);
-            food = new Food(settings.fieldWidth,settings.fieldHeight, feld);
+            food = new Food(settings.fieldWidth,settings.fieldHeight, feld, snake1.bodySegments);
             SnakeLogger.logger.Information($"Settings wurden in Game übernommen");
         }
 
