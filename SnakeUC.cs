@@ -3,41 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Snake
 {
-    /// <summary>
-    /// Interaktionslogik für SnakeUC.xaml
-    /// </summary>
-    public partial class SnakeUC : UserControl
+    public class SnakeUC
     {
         public List<BodySegment> bodySegments = new List<BodySegment>();
         public Direction direction { get; private set; } = Direction.Right;
         private bool isAlive = true;
         public SnakeUC(int startLength, Canvas feld)
         {
-            InitializeComponent();
             for (int i = 0; i < startLength; i++)
             {
-                bodySegments.Add(new BodySegment(5-i, 1));
+                bodySegments.Add(new BodySegment(5 - i, 1));
                 bodySegments[i].GetPosition();
                 feld.Children.Add(bodySegments[i]);
             }
         }
         public void Move()
         {
-            for (int i = bodySegments.Count()-1; i > 0; i--)
+            for (int i = bodySegments.Count() - 1; i > 0; i--)
             {
-                bodySegments[i].x = bodySegments[i-1].x;
+                bodySegments[i].x = bodySegments[i - 1].x;
                 bodySegments[i].y = bodySegments[i - 1].y;
                 Canvas.SetLeft(bodySegments[i], bodySegments[i].x * 43 - 40);
                 Canvas.SetTop(bodySegments[i], bodySegments[i].y * 43 - 40);
@@ -70,12 +58,12 @@ namespace Snake
         public void Grow(Canvas feld)
         {
             bodySegments.Add(new BodySegment(bodySegments[bodySegments.Count - 1].GetPosition().Item1, bodySegments[bodySegments.Count - 1].GetPosition().Item2 + 1));
-            Canvas.SetLeft(bodySegments[bodySegments.Count - 1], bodySegments[bodySegments.Count-1].x * 43 - 40);
-            Canvas.SetTop(bodySegments[bodySegments.Count - 1], bodySegments[bodySegments.Count-1].y * 43 - 40);
-            feld.Children.Add(bodySegments[bodySegments.Count-1]);
+            Canvas.SetLeft(bodySegments[bodySegments.Count - 1], bodySegments[bodySegments.Count - 1].x * 43 - 40);
+            Canvas.SetTop(bodySegments[bodySegments.Count - 1], bodySegments[bodySegments.Count - 1].y * 43 - 40);
+            feld.Children.Add(bodySegments[bodySegments.Count - 1]);
         }
-        
-        public (bool, bool) ChekcCollision(int height, double width, (int, int)food_coords)
+
+        public (bool, bool) ChekcCollision(int height, double width, (int, int) food_coords)
         {
             for (int i = 1; i < bodySegments.Count; i++)
             {
@@ -84,7 +72,7 @@ namespace Snake
                     return (true, false);
                 }
             }
-            if ((bodySegments[0].x > width || bodySegments[0].x <= 0)||(bodySegments[0].y > height || bodySegments[0].y <= 0))
+            if ((bodySegments[0].x > width || bodySegments[0].x <= 0) || (bodySegments[0].y > height || bodySegments[0].y <= 0))
             {
                 return (true, false);
             }

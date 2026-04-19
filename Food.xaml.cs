@@ -21,10 +21,10 @@ namespace Snake
     /// </summary>
     public partial class Food : UserControl
     {
-        private int x;
-        private int y;
-        private int fieldWith;
-        private int fieldHeight;
+        public int x;
+        public int y;
+        public int fieldWith;
+        public int fieldHeight;
         private List<BodySegment> segnemts = new List<BodySegment>();
         private Random random = new Random();
         public Food(int fieldWith, int fieldHeight, Canvas field, List<BodySegment> segnemts)

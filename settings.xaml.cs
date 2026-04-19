@@ -27,7 +27,8 @@ namespace Snake
 
         public bool ok = false;
         private bool loded = false;
-
+        public bool lode = false;
+        public bool save = false;
         public Settings(int speed = 1, int width = 10, int height = 10, int length = 1, string name = null)
         {
             InitializeComponent();
@@ -93,12 +94,12 @@ namespace Snake
 
         private void Load_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            lode = true;
         }
 
         private void save_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            save = true;
         }
     }
 }

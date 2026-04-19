@@ -83,12 +83,24 @@ namespace Snake
                 settings_window.ShowDialog();
                 if (settings_window.ok == true)
                 {
-                    this.speed = settings_window.speed;
-                    this.height = (int)settings_window.fieldHeight;
-                    this.width = (int)settings_window.fieldWidth;
-                    felder_erstellen();
-                    timer.Interval = TimeSpan.FromSeconds(settings_window.speed);
-
+                    if (settings_window.save == true)
+                    {
+                        game.SaveToJson("game.json");
+                        settings_window.save = false;
+                    }
+                    else if (settings_window.lode == true)
+                    {
+                        game.LoadFromJson("game.json", feld);
+                        settings_window.lode = false;
+                    }
+                    else
+                    {
+                        this.speed = settings_window.speed;
+                        this.height = (int)settings_window.fieldHeight;
+                        this.width = (int)settings_window.fieldWidth;
+                        felder_erstellen();
+                        timer.Interval = TimeSpan.FromSeconds(settings_window.speed);
+                    }
                 }
                 timer.Start();
             }
