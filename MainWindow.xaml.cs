@@ -53,6 +53,7 @@ namespace Snake
         {
             if (game.Update(feld, score_label) == true)
             {
+                settigs(true);
                 OnClosed(EventArgs.Empty);
             }
         }
@@ -77,32 +78,7 @@ namespace Snake
         {
             if (e.Key == (Key.Escape))
             {
-                SnakeLogger.logger.Debug("Esc wurde gedrückt");
-                settings_window = new Settings();
-                timer.Stop();
-                settings_window.ShowDialog();
-                if (settings_window.ok == true)
-                {
-                    if (settings_window.save == true)
-                    {
-                        game.SaveToJson("game.json");
-                        settings_window.save = false;
-                    }
-                    else if (settings_window.lode == true)
-                    {
-                        game.LoadFromJson("game.json", feld);
-                        settings_window.lode = false;
-                    }
-                    else
-                    {
-                        this.speed = settings_window.speed;
-                        this.height = (int)settings_window.fieldHeight;
-                        this.width = (int)settings_window.fieldWidth;
-                        felder_erstellen();
-                        timer.Interval = TimeSpan.FromSeconds(settings_window.speed);
-                    }
-                }
-                timer.Start();
+                settigs();
             }
             if (e.Key == (Key.W) && game.snake1.direction != Direction.Down)
             {
@@ -142,6 +118,48 @@ namespace Snake
             }
             SnakeLogger.logger.Debug($"Height/Width{height};{width}");
             game = new Game(settings_window, feld);
+        }
+        private void settigs(bool name_ = false)
+        {
+            SnakeLogger.logger.Debug("Die settings wurden geöffnet");
+            settings_window = new Settings(name_);
+            timer.Stop();
+            settings_window.ShowDialog();
+            if (settings_window.ok == true)
+            {
+                if (settings_window.save == true)
+                {
+                    game.SaveToJson("game.json");
+                    settings_window.save = false;
+                }
+                else if (settings_window.lode == true)
+                {
+                    game.LoadFromJson("game.json", feld);
+                    settings_window.lode = false;
+                }
+                else
+                {
+                    this.speed = settings_window.speed;
+                    this.height = (int)settings_window.fieldHeight;
+                    this.width = (int)settings_window.fieldWidth;
+                    felder_erstellen();
+                    timer.Interval = TimeSpan.FromSeconds(settings_window.speed);
+                }
+            }
+            timer.Start();
+        }
+
+        private void settings_button_Click(object sender, RoutedEventArgs e)
+        {
+            settigs();
+        }
+
+        private void Leaderbord_button_Click(object sender, RoutedEventArgs e)
+        {
+            timer.Stop();
+            Leaderbord window = new Leaderbord();
+            window.ShowDialog();
+            timer.Start();
         }
     }
 }

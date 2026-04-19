@@ -29,7 +29,8 @@ namespace Snake
         private bool loded = false;
         public bool lode = false;
         public bool save = false;
-        public Settings(int speed = 1, int width = 10, int height = 10, int length = 1, string name = null)
+        private bool name_=false;
+        public Settings(bool name_ = false,int speed = 1, int width = 10, int height = 10, int length = 1, string name = null)
         {
             InitializeComponent();
             SnakeLogger.logger.Information("Settings wurden initialisiert");
@@ -38,6 +39,7 @@ namespace Snake
             this.fieldHeight = height;
             this.initialLength = length;
             this.name = name;
+            this.name_ = name_;
             SnakeLogger.logger.Information($"Settings Werten wurden gesetzt: {speed},{width},{height},{length}");
         }
         public void Apply()
@@ -51,7 +53,15 @@ namespace Snake
 
         private void okButton_Click(object sender, RoutedEventArgs e)
         {
-            Apply();
+            if (name_ == true && string.IsNullOrEmpty(name_textbox.Text) == true)
+            {
+                name_textbox.Background = Brushes.LightCoral;
+            }
+            else
+            {
+                name_textbox.Background = Brushes.White;
+                Apply();
+            }
             ok = true;
             SnakeLogger.logger.Information($"Settings wurden gändert: {this.speed},{this.fieldWidth},{this.fieldHeight},{this.initialLength}");
             Close();
@@ -59,8 +69,11 @@ namespace Snake
 
         private void abbButton_Click(object sender, RoutedEventArgs e)
         {
-            SnakeLogger.logger.Debug("Settings wurden abgebrochen");
-            Close();
+            if (name_ == false)
+            {
+                SnakeLogger.logger.Debug("Settings wurden abgebrochen");
+                Close();
+            }
         }
 
         private void SpeedSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
