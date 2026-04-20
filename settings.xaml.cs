@@ -61,10 +61,11 @@ namespace Snake
             {
                 name_textbox.Background = Brushes.White;
                 Apply();
+                ok = true;
+                SnakeLogger.logger.Information($"Settings wurden gändert: {this.speed},{this.fieldWidth},{this.fieldHeight},{this.initialLength}");
+                Close();
             }
-            ok = true;
-            SnakeLogger.logger.Information($"Settings wurden gändert: {this.speed},{this.fieldWidth},{this.fieldHeight},{this.initialLength}");
-            Close();
+            
         }
 
         private void abbButton_Click(object sender, RoutedEventArgs e)
